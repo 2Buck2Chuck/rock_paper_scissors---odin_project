@@ -51,31 +51,33 @@ function round(computerSelection, playerSelection) {
         return response;
     }
     else {
-        return prompt("Make a proper selection please!");
+        return alert("Make a proper selection please!");
     }
 }
 
 function game() {
     playerScore = 0;
-    computerScore = 0;
-    
-    for (let i = 0; i < 5; i++) {
+    computerScore = 0;   
+    for (let i = 0; i < 5; i++) { 
        roundOutcome = round(computerPlay(), playerPlay());
-       if (roundOutcome === alert("PAPER beats ROCK! You win!", "Click any key to continue") || alert("SCISSORS beats PAPER! You win!", "Click any key to continue") || alert("ROCK beats SCISSORS! You win!", "Click any key to continue")) {
-            playerScore = playerScore++;
+       if (roundOutcome === "PAPER beats ROCK! You win!", "Click any key to continue" || "SCISSORS beats PAPER! You win!", "Click any key to continue" || "ROCK beats SCISSORS! You win!", "Click any key to continue") {
+            playerScore++;
        }
-       else if (roundOutcome === alert("ROCK beats SCISSORS! You lose!", "Click any key to continue") || alert("PAPER beats ROCK! You lose!", "Click any key to continue") || alert("SCISSORS beats PAPER! You lose!", "Click any key to continue")) {
-           computerScore = computerScore++;
+       else if (roundOutcome === "ROCK beats SCISSORS! You lose!", "Click any key to continue" || "PAPER beats ROCK! You lose!", "Click any key to continue" || "SCISSORS beats PAPER! You lose!", "Click any key to continue") {
+           computerScore++;
        }
        else {   
        }
      }
-    
+
     if (playerScore > computerScore) {
         alert("You won the most rounds! YOU WIN THE GAME!!!");
     }
+    else if (computerScore > playerScore) {
+        alert("You did not win the most rounds. You lose the game :(");
+    }
     else {
-        alert("You did not win the most rounds. You lose :(");
+        alert("You have tied. There is no winner to the game.")
     }
 }
 
