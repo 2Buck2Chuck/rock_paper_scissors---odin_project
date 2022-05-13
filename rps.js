@@ -11,6 +11,9 @@ function playerPlay() {
 }
 
 function round(computerSelection, playerSelection) {
+    playerScore = 0;
+    computerScore = 0;
+
     if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "ROCK") {
       let response = alert("You both chose ROCK. It's a tie!", "Click any key to continue");
       return response;
@@ -53,9 +56,27 @@ function round(computerSelection, playerSelection) {
 }
 
 function game() {
+    playerScore = 0;
+    computerScore = 0;
+    
     for (let i = 0; i < 5; i++) {
-        round(computerPlay(), playerPlay());
+       roundOutcome = round(computerPlay(), playerPlay());
+       if (roundOutcome === alert("PAPER beats ROCK! You win!", "Click any key to continue") || alert("SCISSORS beats PAPER! You win!", "Click any key to continue") || alert("ROCK beats SCISSORS! You win!", "Click any key to continue")) {
+            playerScore = playerScore++;
+       }
+       else if (roundOutcome === alert("ROCK beats SCISSORS! You lose!", "Click any key to continue") || alert("PAPER beats ROCK! You lose!", "Click any key to continue") || alert("SCISSORS beats PAPER! You lose!", "Click any key to continue")) {
+           computerScore = computerScore++;
+       }
+       else {   
+       }
      }
+    
+    if (playerScore > computerScore) {
+        alert("You won the most rounds! YOU WIN THE GAME!!!");
+    }
+    else {
+        alert("You did not win the most rounds. You lose :(");
+    }
 }
 
 game();
