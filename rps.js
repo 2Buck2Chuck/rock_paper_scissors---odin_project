@@ -12,43 +12,46 @@ function playerPlay() {
 
 function round(computerSelection, playerSelection) {
     if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "ROCK") {
-        let response = "a";
-        return response;
+        alert("You both chose ROCK. It's a tie!", "Click any key to continue");
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "PAPER") {
-        let response = "b";
-        return response;
+        alert("You both chose PAPER. It's a tie!", "Click any key to continue");
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "SCISSORS") {
-        let response = "c";
-        return response;
+        alert("You both chose SCISSORS. It's a tie!", "Click any key to continue");
     }
     else if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "PAPER") {
-        let response = "d";
-        return response;
+        alert("PAPER beats ROCK! You win!", "Click any key to continue");
+        let roundWinner = "player";
+        return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "SCISSORS") {
-        let response = "e";
-        return response;
+        alert("ROCK beats SCISSORS! You lose!", "Click any key to continue");
+        let roundWinner = "computer";
+        return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "ROCK") {
-        let response = "f";
-        return response;
+        alert("PAPER beats ROCK! You lose!", "Click any key to continue");
+        let roundWinner = "computer";
+        return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "SCISSORS") {
-        let response = "g";
-        return response;
+        alert("SCISSORS beats PAPER! You win!", "Click any key to continue");
+        let roundWinner = "player";
+        return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "PAPER") {
-        let response = "h";
-        return response;
+        alert("SCISSORS beats PAPER! You lose!", "Click any key to continue");
+        let roundWinner = "computer";
+        return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "ROCK") {
-        let response = "i";
-        return response;
+        alert("ROCK beats SCISSORS! You win!", "Click any key to continue");
+        let roundWinner = "player";
+        return roundWinner;
     }
     else {
-
+        alert("Make a proper selection please!");
     }
 }
 
@@ -59,52 +62,16 @@ function game() {
 
     for (let i = 0; i < 5; i++) { 
        
-        let option = round(computerPlay(), playerPlay());
+        let roundWinner = round(computerPlay(), playerPlay());
 
-        if (option === "a") {
-            let response = alert("You both chose ROCK. It's a tie!", "Click any key to continue");
-            console.log(response);
-        }
-        else if (option === "b") {
-            let response = alert("You both chose PAPER. It's a tie!", "Click any key to continue");
-            console.log(response);
-        }
-        else if (option === "c") {
-            let response = alert("You both chose SCISSORS. It's a tie!", "Click any key to continue");
-            console.log(response);
-        }
-        else if (option === "d") {
-            let response = alert("PAPER beats ROCK! You win!", "Click any key to continue");
-            console.log(response);
-            playerScore++
-        }
-        else if (option === "e") {
-            let response = alert("ROCK beats SCISSORS! You lose!", "Click any key to continue");
-            console.log(response);
-            computerScore++;
-        }
-        else if (option === "f") {
-            let response = alert("PAPER beats ROCK! You lose!", "Click any key to continue");
-            console.log(response);
-            computerScore++;
-        }
-        else if (option === "g") {
-            let response = alert("SCISSORS beats PAPER! You win!", "Click any key to continue");
-            console.log(response);
+        if (roundWinner === "player") {
             playerScore++;
         }
-        else if (option === "h") {
-            let response = alert("SCISSORS beats PAPER! You lose!", "Click any key to continue");
-            console.log(response);
+        else if (roundWinner === "computer") {
             computerScore++;
-        }
-        else if (option === "i") {
-            let response = alert("ROCK beats SCISSORS! You win!", "Click any key to continue");
-            console.log(response);
-            playerScore++;
         }
         else {
-            return alert("Make a proper selection please!");
+            
         }
     }
     
