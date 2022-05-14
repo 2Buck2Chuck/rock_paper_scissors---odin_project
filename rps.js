@@ -1,3 +1,5 @@
+//A function for randomizing the computers choice in "Rock, Paper, Scissors"
+
 function computerPlay() {
     const rps = ["Rock", "Paper", "Scissors"];
     const random = Math.floor(Math.random() * rps.length);
@@ -5,10 +7,16 @@ function computerPlay() {
     return choice;
 }
 
+/*A small function for creating a pop-up window, allowing the player to make 
+their choice in "Rock, Paper, Scissors"*/
+
 function playerPlay() {
    const choice = window.prompt("Please type ROCK, PAPER, or SCISSORS");
    return choice;
 }
+
+/*A function for analyzing each possible outcome to the game and creating a
+customized alert to the user/player*/
 
 function round(computerSelection, playerSelection) {
     if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "ROCK") {
@@ -54,6 +62,10 @@ function round(computerSelection, playerSelection) {
         alert("Make a proper selection please!");
     }
 }
+
+/*A function for giving structure to the entire game (consisting of 5 rounds) and
+then using the return value of round() to calculate the overall game score and
+print a response alert to the user/player*/
 
 function game() {
 
