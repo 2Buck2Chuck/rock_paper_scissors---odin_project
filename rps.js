@@ -29,32 +29,32 @@ function round(computerSelection, playerSelection) {
         alert("You both chose SCISSORS. It's a tie!", "Click any key to continue");
     }
     else if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "PAPER") {
-        alert("PAPER beats ROCK! You win!", "Click any key to continue");
+        alert("CPU chose ROCK. PAPER beats ROCK! You win!", "Click any key to continue");
         let roundWinner = "player";
         return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "SCISSORS") {
-        alert("ROCK beats SCISSORS! You lose!", "Click any key to continue");
+        alert("CPU chose ROCK. ROCK beats SCISSORS! You lose!", "Click any key to continue");
         let roundWinner = "computer";
         return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "ROCK") {
-        alert("PAPER beats ROCK! You lose!", "Click any key to continue");
+        alert("CPU chose PAPER. PAPER beats ROCK! You lose!", "Click any key to continue");
         let roundWinner = "computer";
         return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "SCISSORS") {
-        alert("SCISSORS beats PAPER! You win!", "Click any key to continue");
+        alert("CPU chose PAPER. SCISSORS beats PAPER! You win!", "Click any key to continue");
         let roundWinner = "player";
         return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "PAPER") {
-        alert("SCISSORS beats PAPER! You lose!", "Click any key to continue");
+        alert("CPU chose SCISSORS. SCISSORS beats PAPER! You lose!", "Click any key to continue");
         let roundWinner = "computer";
         return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "ROCK") {
-        alert("ROCK beats SCISSORS! You win!", "Click any key to continue");
+        alert("CPU chose SCISSORS. ROCK beats SCISSORS! You win!", "Click any key to continue");
         let roundWinner = "player";
         return roundWinner;
     }
