@@ -1,9 +1,9 @@
 /*Create a nodelist of the three choice buttons and add an event listener
-that returns the button id's, as well as call game() with the button id*/
+that returns the user-chosen button's id, as well as calls game() with the button id*/
 const buttons = document.querySelectorAll('button');
 buttons.forEach(getButtonId);
 
-function getButtonId (button) {
+function getButtonId(button) {
     button.addEventListener('click', (e) => {
         game(button.id);
     })
@@ -17,8 +17,39 @@ function computerPlay() {
     return choice;
 }
 
+/*A function for giving structure to the entire game (consisting of 5 rounds) and
+then using the return value of round() to calculate the overall game score and
+print a response alert to the user*/
+function game(playerPlay) {
+
+    playerScore = 0;
+    computerScore = 0;
+       
+        let roundWinner = round(computerPlay(), playerPlay);
+
+        if (roundWinner === "player") {
+            playerScore++;
+        }
+        else if (roundWinner === "computer") {
+            computerScore++;
+        }
+        else {
+            
+        }
+    
+    if (playerScore > computerScore) {
+        alert("You won the most rounds! YOU WIN THE GAME!!!");
+    }
+    else if (computerScore > playerScore) {
+        alert("You did not win the most rounds. You lose the game :(");
+    }
+    else {
+        alert("You have tied. There is no winner to the game.")
+    }
+}
+
 /*A function for analyzing each possible outcome to the game and creating a
-customized alert to the user/player*/
+customized alert to the user*/
 function round(computerSelection, playerSelection) {
     if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "ROCK") {
         alert("You both chose ROCK. It's a tie!", "Click any key to continue");
@@ -64,36 +95,3 @@ function round(computerSelection, playerSelection) {
     }
 }
 
-/*A function for giving structure to the entire game (consisting of 5 rounds) and
-then using the return value of round() to calculate the overall game score and
-print a response alert to the user/player*/
-function game(playerPlay) {
-
-    playerScore = 0;
-    computerScore = 0;
-
-    for (let i = 0; i < 5; i++) { 
-       
-        let roundWinner = round(computerPlay(), playerPlay);
-
-        if (roundWinner === "player") {
-            playerScore++;
-        }
-        else if (roundWinner === "computer") {
-            computerScore++;
-        }
-        else {
-            
-        }
-    }
-    
-    if (playerScore > computerScore) {
-        alert("You won the most rounds! YOU WIN THE GAME!!!");
-    }
-    else if (computerScore > playerScore) {
-        alert("You did not win the most rounds. You lose the game :(");
-    }
-    else {
-        alert("You have tied. There is no winner to the game.")
-    }
-}
