@@ -1,13 +1,11 @@
 /*Create a nodelist of the three choice buttons and add an event listener
-that returns the button id's*/
+that returns the button id's, as well as call game() with the button id*/
 const buttons = document.querySelectorAll('button');
 buttons.forEach(getButtonId);
-let buttonId = '';
 
 function getButtonId (button) {
     button.addEventListener('click', (e) => {
-        buttonId = button.id;
-        game(buttonId);
+        game(button.id);
     })
 }
 
