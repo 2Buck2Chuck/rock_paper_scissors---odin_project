@@ -1,5 +1,17 @@
-//A function for randomizing the computers choice in "Rock, Paper, Scissors"
+/*Create a nodelist of the three choice buttons and add an event listener
+that returns the button id's*/
+const buttons = document.querySelectorAll('button');
+buttons.forEach(getButtonId);
+let buttonId = '';
 
+function getButtonId (button) {
+    button.addEventListener('click', (e) => {
+        buttonId = button.id;
+        game(buttonId);
+    })
+}
+
+//A function for randomizing the computers choice in "Rock, Paper, Scissors"
 function computerPlay() {
     const rps = ["Rock", "Paper", "Scissors"];
     const random = Math.floor(Math.random() * rps.length);
@@ -7,17 +19,8 @@ function computerPlay() {
     return choice;
 }
 
-/*A small function for creating a pop-up window, allowing the player to make 
-their choice in "Rock, Paper, Scissors"*/
-
-function playerPlay() {
-   const choice = window.prompt("Please type ROCK, PAPER, or SCISSORS");
-   return choice;
-}
-
 /*A function for analyzing each possible outcome to the game and creating a
 customized alert to the user/player*/
-
 function round(computerSelection, playerSelection) {
     if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "ROCK") {
         alert("You both chose ROCK. It's a tie!", "Click any key to continue");
@@ -66,15 +69,14 @@ function round(computerSelection, playerSelection) {
 /*A function for giving structure to the entire game (consisting of 5 rounds) and
 then using the return value of round() to calculate the overall game score and
 print a response alert to the user/player*/
-
-function game() {
+function game(playerPlay) {
 
     playerScore = 0;
     computerScore = 0;
 
     for (let i = 0; i < 5; i++) { 
        
-        let roundWinner = round(computerPlay(), playerPlay());
+        let roundWinner = round(computerPlay(), playerPlay);
 
         if (roundWinner === "player") {
             playerScore++;
@@ -97,8 +99,3 @@ function game() {
         alert("You have tied. There is no winner to the game.")
     }
 }
-
-game();
-
-console.log(playerScore);
-console.log(computerScore);
