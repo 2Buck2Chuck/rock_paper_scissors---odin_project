@@ -1,4 +1,7 @@
 const container = document.querySelector('div');
+playerScore = 0;
+computerScore = 0;
+
 
 /*Create a nodelist of the three choice buttons and add an event listener
 that returns the user-chosen button's id, as well as calls game() with the button id*/
@@ -24,20 +27,10 @@ then using the return value of round() to calculate the overall game score and
 print a response alert to the user*/
 function game(playerPlay) {
 
-    playerScore = 0;
-    computerScore = 0;
-       
-    let roundWinner = round(computerPlay(), playerPlay);
-
-    if (roundWinner === "player") {
-        playerScore++;
+    if (playerScore <= 4 && computerScore <= 4) {       
+        let roundWinner = round(computerPlay(), playerPlay);
     }
-    else if (roundWinner === "computer") {
-        computerScore++;
-    }
-    else return;
-
-    if (playerScore === 5 || computerScore === 5) {
+    else if (playerScore === 5 || computerScore === 5) {
     
         if (playerScore > computerScore) {
             const info = document.createElement('p');
@@ -76,43 +69,43 @@ function round(computerSelection, playerSelection) {
         const info = document.createElement('p');
         info.textContent = "CPU chose ROCK. PAPER beats ROCK! You win!";
         container.appendChild(info);
-        let roundWinner = "player";
-        return roundWinner;
+        playerScore++;
+        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
     else if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "SCISSORS") {
         const info = document.createElement('p');
         info.textContent = "CPU chose ROCK. ROCK beats SCISSORS! You lose!";
         container.appendChild(info);
-        let roundWinner = "computer";
-        return roundWinner;
+        computerScore++;
+        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "ROCK") {
         const info = document.createElement('p');
         info.textContent = "CPU chose PAPER. PAPER beats ROCK! You lose!";
         container.appendChild(info);
-        let roundWinner = "computer";
-        return roundWinner;
+        computerScore++;
+        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "SCISSORS") {
         const info = document.createElement('p');
         info.textContent = "CPU chose PAPER. SCISSORS beats PAPER! You win!";
         container.appendChild(info);
-        let roundWinner = "player";
-        return roundWinner;
+        playerScore++;
+        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "PAPER") {
         const info = document.createElement('p');
         info.textContent = "CPU chose SCISSORS. SCISSORS beats PAPER! You lose!";
         container.appendChild(info);
-        let roundWinner = "computer";
-        return roundWinner;
+        computerScore++;
+        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "ROCK") {
         const info = document.createElement('p');
         info.textContent = "CPU chose SCISSORS. ROCK beats SCISSORS! You win!";
         container.appendChild(info);
-        let roundWinner = "player";
-        return roundWinner;
+        playerScore++;
+        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
     else {
         const info = document.createElement('p');
