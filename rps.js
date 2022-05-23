@@ -1,3 +1,5 @@
+const container = document.querySelector('div');
+
 /*Create a nodelist of the three choice buttons and add an event listener
 that returns the user-chosen button's id, as well as calls game() with the button id*/
 const buttons = document.querySelectorAll('button');
@@ -52,46 +54,66 @@ function game(playerPlay) {
 customized alert to the user*/
 function round(computerSelection, playerSelection) {
     if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "ROCK") {
-        alert("You both chose ROCK. It's a tie!", "Click any key to continue");
+        const info = document.createElement('p');
+        info.textContent = "You both chose ROCK. It's a tie!";
+        container.appendChild(info);
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "PAPER") {
-        alert("You both chose PAPER. It's a tie!", "Click any key to continue");
+        const info = document.createElement('p');
+        info.textContent = "You both chose PAPER. It's a tie!";
+        container.appendChild(info);
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "SCISSORS") {
-        alert("You both chose SCISSORS. It's a tie!", "Click any key to continue");
+        const info = document.createElement('p');
+        info.textContent = "You both chose SCISSORS. It's a tie!";
+        container.appendChild(info);
     }
-    else if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "PAPER") {
-        alert("CPU chose ROCK. PAPER beats ROCK! You win!", "Click any key to continue");
+    else if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "PAPER") { 
+        const info = document.createElement('p');
+        info.textContent = "CPU chose ROCK. PAPER beats ROCK! You win!";
+        container.appendChild(info);
         let roundWinner = "player";
         return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "SCISSORS") {
-        alert("CPU chose ROCK. ROCK beats SCISSORS! You lose!", "Click any key to continue");
+        const info = document.createElement('p');
+        info.textContent = "CPU chose ROCK. ROCK beats SCISSORS! You lose!";
+        container.appendChild(info);
         let roundWinner = "computer";
         return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "ROCK") {
-        alert("CPU chose PAPER. PAPER beats ROCK! You lose!", "Click any key to continue");
+        const info = document.createElement('p');
+        info.textContent = "CPU chose PAPER. PAPER beats ROCK! You lose!";
+        container.appendChild(info);
         let roundWinner = "computer";
         return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "SCISSORS") {
-        alert("CPU chose PAPER. SCISSORS beats PAPER! You win!", "Click any key to continue");
+        const info = document.createElement('p');
+        info.textContent = "CPU chose PAPER. SCISSORS beats PAPER! You win!";
+        container.appendChild(info);
         let roundWinner = "player";
         return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "PAPER") {
-        alert("CPU chose SCISSORS. SCISSORS beats PAPER! You lose!", "Click any key to continue");
+        const info = document.createElement('p');
+        info.textContent = "CPU chose SCISSORS. SCISSORS beats PAPER! You lose!";
+        container.appendChild(info);
         let roundWinner = "computer";
         return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "ROCK") {
-        alert("CPU chose SCISSORS. ROCK beats SCISSORS! You win!", "Click any key to continue");
+        const info = document.createElement('p');
+        info.textContent = "CPU chose SCISSORS. ROCK beats SCISSORS! You win!";
+        container.appendChild(info);
         let roundWinner = "player";
         return roundWinner;
     }
     else {
-        alert("Make a proper selection please!");
+        const info = document.createElement('p');
+        info.textContent = "Make a proper selection please!";
+        container.appendChild(info);
     }
 }
 
