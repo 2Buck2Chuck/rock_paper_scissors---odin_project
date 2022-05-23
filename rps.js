@@ -25,27 +25,27 @@ function game(playerPlay) {
     playerScore = 0;
     computerScore = 0;
        
-        let roundWinner = round(computerPlay(), playerPlay);
+    let roundWinner = round(computerPlay(), playerPlay);
 
-        if (roundWinner === "player") {
-            playerScore++;
-        }
-        else if (roundWinner === "computer") {
-            computerScore++;
-        }
-        else {
-            
-        }
+    if (roundWinner === "player") {
+        playerScore++;
+    }
+    else if (roundWinner === "computer") {
+        computerScore++;
+    }
+    else return;
+
+    if (playerScore === 5 || computerScore === 5) {
     
-    if (playerScore > computerScore) {
-        alert("You won the most rounds! YOU WIN THE GAME!!!");
+        if (playerScore > computerScore) {
+            alert("You won the most rounds! YOU WIN THE GAME!!!");
+        }
+        else if (computerScore > playerScore) {
+            alert("You did not win the most rounds. You lose the game :(");
+        }
+        else return;
     }
-    else if (computerScore > playerScore) {
-        alert("You did not win the most rounds. You lose the game :(");
-    }
-    else {
-        alert("You have tied. There is no winner to the game.")
-    }
+    else return;
 }
 
 /*A function for analyzing each possible outcome to the game and creating a
