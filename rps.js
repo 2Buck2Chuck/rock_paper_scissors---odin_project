@@ -52,65 +52,82 @@ customized alert to the user*/
 function round(computerSelection, playerSelection) {
     if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "ROCK") {
         const info = document.createElement('p');
+        const score = document.createElement('p');
         info.textContent = "You both chose ROCK. It's a tie!";
+        score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
+        container.appendChild(score);
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "PAPER") {
         const info = document.createElement('p');
+        const score = document.createElement('p');
         info.textContent = "You both chose PAPER. It's a tie!";
+        score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
+        container.appendChild(score);
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "SCISSORS") {
         const info = document.createElement('p');
+        const score = document.createElement('p');
         info.textContent = "You both chose SCISSORS. It's a tie!";
+        score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
+        container.appendChild(score);
     }
     else if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "PAPER") { 
         const info = document.createElement('p');
+        const score = document.createElement('p');
         info.textContent = "CPU chose ROCK. PAPER beats ROCK! You win!";
+        score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
+        container.appendChild(score);
         playerScore++;
-        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
     else if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "SCISSORS") {
         const info = document.createElement('p');
+        const score = document.createElement('p');
         info.textContent = "CPU chose ROCK. ROCK beats SCISSORS! You lose!";
+        score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
+        container.appendChild(score);
         computerScore++;
-        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "ROCK") {
         const info = document.createElement('p');
+        const score = document.createElement('p');
         info.textContent = "CPU chose PAPER. PAPER beats ROCK! You lose!";
+        score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
+        container.appendChild(score);
         computerScore++;
-        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "SCISSORS") {
         const info = document.createElement('p');
+        const score = document.createElement('p');
         info.textContent = "CPU chose PAPER. SCISSORS beats PAPER! You win!";
+        score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
+        container.appendChild(score);
         playerScore++;
-        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "PAPER") {
         const info = document.createElement('p');
+        const score = document.createElement('p');
         info.textContent = "CPU chose SCISSORS. SCISSORS beats PAPER! You lose!";
+        score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
+        container.appendChild(score);
         computerScore++;
-        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "ROCK") {
         const info = document.createElement('p');
+        const score = document.createElement('p');
         info.textContent = "CPU chose SCISSORS. ROCK beats SCISSORS! You win!";
+        score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
+        container.appendChild(score);
         playerScore++;
-        console.log(`playerScore: ${playerScore}, computerScore: ${computerScore}`);
     }
-    else {
-        const info = document.createElement('p');
-        info.textContent = "Make a proper selection please!";
-        container.appendChild(info);
-    }
+    else return;
 }
 
