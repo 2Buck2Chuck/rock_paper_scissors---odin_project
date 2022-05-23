@@ -40,10 +40,14 @@ function game(playerPlay) {
     if (playerScore === 5 || computerScore === 5) {
     
         if (playerScore > computerScore) {
-            alert("You won the most rounds! YOU WIN THE GAME!!!");
+            const info = document.createElement('p');
+            info.textContent = "You won the most rounds! YOU WIN THE GAME!!!";
+            container.appendChild(info);
         }
         else if (computerScore > playerScore) {
-            alert("You did not win the most rounds. You lose the game :(");
+            const info = document.createElement('p');
+            info.textContent = "You did not win the most rounds. You lose the game :(";
+            container.appendChild(info);
         }
         else return;
     }
