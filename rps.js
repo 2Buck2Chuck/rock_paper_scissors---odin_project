@@ -2,6 +2,7 @@
 const container = document.querySelector('div');
 playerScore = 0;
 computerScore = 0;
+roundWinner = '';
 
 
 /*Create a nodelist of the three choice buttons and add an event listener
@@ -27,18 +28,18 @@ function computerPlay() {
 the winner once 5 rounds have been won*/
 function game(playerPlay) {
     if (playerScore < 4 && computerScore < 4) {       
-        round(computerPlay(), playerPlay);
+        roundWinner = round(computerPlay(), playerPlay);
     }
     else if (playerScore === 4 || computerScore === 4) {
         
-        round(computerPlay(), playerPlay);
-
-        if (playerScore > computerScore) {
+        roundWinner = round(computerPlay(), playerPlay);
+        
+        if (playerScore > computerScore && roundWinner === 'player') {
             const info = document.createElement('p');
             info.textContent = "You won the most rounds! YOU WIN THE GAME!!!";
             container.appendChild(info);
         }
-        else if (computerScore > playerScore) {
+        else if (computerScore > playerScore && roundWinner === 'computer') {
             const info = document.createElement('p');
             info.textContent = "You did not win the most rounds. You lose the game :(";
             container.appendChild(info);
@@ -83,6 +84,8 @@ function round(computerSelection, playerSelection) {
         score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
         container.appendChild(score);
+        let roundWinner = 'player';
+        return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "ROCK" && playerSelection.toUpperCase() === "SCISSORS") {
         computerScore++;
@@ -92,6 +95,8 @@ function round(computerSelection, playerSelection) {
         score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
         container.appendChild(score);
+        let roundWinner = 'computer';
+        return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "ROCK") {
         computerScore++;
@@ -101,6 +106,8 @@ function round(computerSelection, playerSelection) {
         score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
         container.appendChild(score);
+        let roundWinner = 'computer';
+        return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "PAPER" && playerSelection.toUpperCase() === "SCISSORS") {
         playerScore++;
@@ -110,6 +117,8 @@ function round(computerSelection, playerSelection) {
         score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
         container.appendChild(score);
+        let roundWinner = 'player';
+        return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "PAPER") {
         computerScore++;
@@ -119,6 +128,8 @@ function round(computerSelection, playerSelection) {
         score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
         container.appendChild(score);
+        let roundWinner = 'computer';
+        return roundWinner;
     }
     else if (computerSelection.toUpperCase() === "SCISSORS" && playerSelection.toUpperCase() === "ROCK") {
         playerScore++;
@@ -128,6 +139,8 @@ function round(computerSelection, playerSelection) {
         score.textContent = `playerScore: ${playerScore}, computerScore: ${computerScore}`;
         container.appendChild(info);
         container.appendChild(score);
+        let roundWinner = 'player';
+        return roundWinner;
     }
     else return;
 }
