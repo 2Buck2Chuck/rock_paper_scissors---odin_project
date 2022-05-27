@@ -46,6 +46,11 @@ function game(playerPlay) {
         }
         else return;
     }
+    else if (playerScore === 5 || computerScore === 5) {
+        const info = document.createElement('p');
+        info.textContent = "The game is over, please refresh the page to play again...";
+        container.appendChild(info);
+    }
     else return;
 }
 
