@@ -2,8 +2,10 @@
 const container = document.querySelector('div');
 let score = document.createElement('p');
 let info = document.createElement('p');
+let gameOver = document.createElement('p');
 container.appendChild(score);
 container.appendChild(info);
+container.appendChild(gameOver);
 playerScore = 0;
 computerScore = 0;
 roundWinner = '';
@@ -36,7 +38,7 @@ function game(playerPlay) {
            
         roundWinner = round(computerPlay(), playerPlay);
     }
-    else if (playerScore === 4 || computerScore === 4) {
+    else if ((playerScore === 4 || computerScore === 4) && (playerScore != 5 && computerScore != 5)) {
         
         roundWinner = round(computerPlay(), playerPlay);
         
@@ -53,9 +55,7 @@ function game(playerPlay) {
         else return;
     }
     else if (playerScore === 5 || computerScore === 5) {
-        const info = document.createElement('p');
-        info.textContent = "The game is over, please refresh the page to play again...";
-        container.appendChild(info);
+        gameOver.textContent = "The game is over, please refresh the page to play again...";
     }
     else return;
 }
